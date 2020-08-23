@@ -3,21 +3,19 @@ import React, { Component } from 'react';
 class CalculatorContainer extends Component {
 
   state = {
-    amount: 0
+    amount: 0,
+    currency: 'HKD'
   }
-
-  // constructor(props) {
-  //   super(props);
-
-  //   this.handleChange = this.handleChange.bind(this);
-  // }
 
   handleChange = (event) => {
     this.setState({ amount:  event.target.value })
   }
+  handleSelectChange = (event) => {
+    this.setState({ currency:  event.target.value })
+  }
 
   render() {
-    const { amount } = this.state;
+    const { amount, currency } = this.state;
     return (
       <div>
         <div>
@@ -27,12 +25,12 @@ class CalculatorContainer extends Component {
             value={amount}
             onChange={this.handleChange}
           />
-          <select>
-            <option>GBP</option>
-            <option>HKD</option>
-            <option>IDR</option>
-            <option>ILS</option>
-            <option>PLN</option>
+          <select onChange={this.handleSelectChange} value={currency}>
+            <option value="GBP">GBP</option>
+            <option value="HKD">HKD</option>
+            <option value="IDR">IDR</option>
+            <option value="ILS">ILS</option>
+            <option value="PLN">PLN</option>
           </select>
           <input type="submit" value="Send" />
         </div>
