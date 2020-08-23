@@ -8,6 +8,7 @@ import {
 
 // import UsersContainer from '@abc/users/UsersContainer';
 import UsersContainer from './users/containers/UsersContainer';
+import CalculatorContainer from './calculator/containers/CalculatorContainer';
 
 function clickHandler(event) {
   // event.preventDefault();
@@ -30,18 +31,19 @@ function App() {
           <ul>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/users">Users</Link></li>
-            <li><Link to="/money">Currencies</Link></li>
+            <li><Link to="/calculator">Money Calculator</Link></li>
           </ul>
         </nav>
         <Switch>
           <Route path="/users">
             <UsersContainer />
           </Route>
-          <Route path="/money">
-
+          {/* <Route path="/users" component={UsersContainer}/> */}
+          <Route path="/calculator">
+            <CalculatorContainer />
           </Route>
           <Route path="/">
-            
+
           </Route>
         </Switch>
 
