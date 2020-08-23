@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Input from '../components/Input';
+import Select from '../components/Select';
 class CalculatorContainer extends Component {
 
   state = {
@@ -32,38 +34,25 @@ class CalculatorContainer extends Component {
         <form onSubmit={this.handleSubmit}>
           <div>
             <h5>Convert from</h5>
-            <input
-              type="number"
+            <Input
               name="amount"
               placeholder="Amount"
               value={amount}
-              onChange={this.handleChange}
+              handleChange={this.handleChange}
             />
-            <select
+            <Select
               name="base"
-              onChange={this.handleChange}
-              value={base}>
-              <option value="GBP">GBP</option>
-              <option value="HKD">HKD</option>
-              <option value="IDR">IDR</option>
-              <option value="ILS">ILS</option>
-              <option value="PLN">PLN</option>
-              <option value="USD">USD</option>
-            </select>
+              value={base}
+              handleChange={this.handleChange}
+            />
           </div>
           <div>
             <h5>Convert to</h5>
-            <select
+            <Select
               name="currency"
-              onChange={this.handleChange}
-              value={currency}>
-              <option value="GBP">GBP</option>
-              <option value="HKD">HKD</option>
-              <option value="IDR">IDR</option>
-              <option value="ILS">ILS</option>
-              <option value="PLN">PLN</option>
-              <option value="USD">USD</option>
-            </select>
+              value={currency}
+              handleChange={this.handleChange}
+            />
           </div>
           <div>
             <h5>Result: {result}</h5>
