@@ -8,10 +8,7 @@ class CalculatorContainer extends Component {
   }
 
   handleChange = (event) => {
-    this.setState({ amount:  event.target.value })
-  }
-  handleSelectChange = (event) => {
-    this.setState({ currency:  event.target.value })
+    this.setState({ [event.target.name]: event.target.value });
   }
 
   render() {
@@ -21,11 +18,15 @@ class CalculatorContainer extends Component {
         <div>
           <input
             type="number"
+            name="amount"
             placeholder="Amount"
             value={amount}
             onChange={this.handleChange}
           />
-          <select onChange={this.handleSelectChange} value={currency}>
+          <select
+            name="currency"
+            onChange={this.handleChange}
+            value={currency}>
             <option value="GBP">GBP</option>
             <option value="HKD">HKD</option>
             <option value="IDR">IDR</option>
